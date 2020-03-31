@@ -16,11 +16,11 @@ class uvc_ctrl_query(ctypes.Structure):
     ]
 
 with open("/dev/video2", "w") as device:
-    unit = 0x0e
-    selector = 0x0e
+    unit = 10
+    selector = 0x06
     query = UVC_SET_CUR
-    size = 2
-    value = bytearray([0x00, 0x00])
+    size = 9
+    value = bytearray([0x01, 0x03, 0x01, 0,0,0,0,0,0])
 
     u8_array = ctypes.c_uint8 * len(value)
 
